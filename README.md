@@ -214,7 +214,7 @@ Now that we have an API, let's create a client side interface that a typical use
 You can deploy this application as a Cloud Foundry application to IBM Cloud by simply clicking the button below. This option will create a deployment pipeline, complete with a hosted Git lab project and devops toolchain.
 
 <p align="center">
-    <a href="https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/IBM/predictive-model-on-watson-ml">
+    <a href="https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/sergiogama/chatbot-using-predictive-analysis-with-wml-heart-failure">
     <img src="https://cloud.ibm.com/devops/setup/deploy/button_x2.png" alt="Deploy to IBM Cloud">
     </a>
 </p>
