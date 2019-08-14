@@ -2,16 +2,22 @@
 
 > **DISCLAIMER**: This application is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review.
 
-This code pattern can be thought of as two distinct parts:
+This code pattern can be thought of as 4 distinct parts:
 
-1. A predictive model will be built using Spark within a Jupyter Notebook on IBM Watson Studio. The model is then deployed to the Watson Machine Learning service, where it can be accessed via a REST API.
+1. A predictive model will be built using Modeller Flow on IBM Watson Studio. The model is then deployed to the Watson Machine Learning service, where it can be accessed via a REST API.
 
-2. A Node.js web app that allows a user to input some data to be scored against the previous model.
+2. A action developed on IBM Cloud Functions in Node.js to connect to WML service to be scored against the previous model.
+
+3. A ChatBot on Watson Assistant to collect the user / patient information to be socred against the previous model, thru integration on IBM Cloud Functions.
+
+4.  Node.js app to interact to ChatBot to collect data and give the prediction of Heart Failure to the user.
 
 When the reader has completed this Code Pattern, they will understand how to:
 
-* Build a predictive model within a Jupyter Notebook on Watson Studio
+* Build a predictive model within a Modeller Flow on Watson Studio
 * Deploy the model to the IBM Watson Machine Learning service
+* Create a action on IBM Cloud to call WML service
+* Deploy a Chatbot on Watson Studio and integrate it to Cloud Functions
 * Via a Node.js app, score some data against the model via an API call to the Watson Machine Learning service
 
 **Sample output**
@@ -29,19 +35,24 @@ And it's result
 1. The developer creates an IBM Watson Studio Workspace.
 2. IBM Watson Studio uses an Apache Spark service.
 3. IBM Watson Studio uses Cloud Object storage to manage your data.
-4. IBM Watson Studio uses a Jupyter Notebook to import data, train, and evaluate their model.
+4. IBM Watson Studio uses a Modeller Flow to import data, train, and evaluate their model.
 5. Data is imported and stored on Cloud Object Storage.
-6. Models trained via Jupyter Notebooks are deployed using the Watson Machine Learning service.
-7. A Node.js web app is deployed on IBM Cloud, it calls the predictive model hosted on the Watson Machine Learning service.
-8. A user visits the web app, enters their information, and the predictive model returns a response.
+6. Models trained via Modeller Flow are deployed using the Watson Machine Learning service.
+7. The developer creates an Node.js Action on IBM Cloud Functions to call WML service (API)
+8. The developer create Watson Assistant to deploy a chatbot <Link>
+9. Watson Assistant call the action on IBM Cloud Functions, send data collect as parameters.
+10. A Node.js web app is deployed on IBM Cloud, it connects Watson AssistantLearning service.
+11. A user visits the web app, enters their information, and the predictive model returns a response.
 
 !["architecture diagram"](doc/source/images/architecture.png)
 
 ## Included components
 
 * [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
-* [Jupyter Notebook](https://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
-* [PixieDust](https://github.com/pixiedust/pixiedust): Provides a Python helper library for IPython Notebook.
+* [Modeller Flow](https://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
+* [Watson Machine Learning](https://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
+* [IBM Cloud Functions](https://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
+* [Watson Assistant](https://github.com/pixiedust/pixiedust): Provides a Python helper library for IPython Notebook.
 * [Node.js](https://nodejs.org/): An open-source JavaScript run-time environment for executing server-side JavaScript code.
 
 ## Prerequisites
@@ -49,7 +60,7 @@ And it's result
 * An [IBM Cloud Account](https://cloud.ibm.com)
 * An account on [IBM Watson Studio](https://dataplatform.cloud.ibm.com/).
 
-> **NOTE**: As of 12/14/2018, the Watson Machine Learning service on IBM Cloud is only available in the Dallas, London, Frankfurt, or Tokyo regions.
+> **NOTE**: N/a.
 
 ## Steps
 
@@ -57,7 +68,7 @@ And it's result
    * [Create a project in Watson Studio](#11-create-a-project-in-watson-studio)
    * [Add patient data as an asset](#12-add-patient-data-as-an-asset)
    * [Provision a Watson Machine Learning service](#13-provision-a-watson-machine-learning-service)
-   * [Create a notebook in Watson Studio](#14-create-a-notebook-in-watson-studio)
+   * [Create a Modeller Flow in Watson Studio](#14-create-a-modeller-flow-in-watson-studio)
 1. [Create and deploy a predictive model with Watson Studio](#2-create-and-deploy-a-predictive-model-with-watson-studio)
    * [Start stepping through the notebook](#21-start-stepping-through-the-notebook)
    * [Save the model](#22-save-the-model)
@@ -120,7 +131,7 @@ The data used in this example was generated using a normal distribution. Attribu
 
    ![add asset](https://github.com/IBM/pattern-utils/raw/master/watson-studio/hamburger-menu-project.png)
 
-#### 1.4 Create a notebook in Watson Studio
+#### 1.4 Create a Modeller Flow in Watson Studio
 
 The notebook we'll be using can be viewed in [`notebooks/predictiveModel.ipynb`](notebooks/predictiveModel.ipynb), and a completed version can be found in [`examples/exampleOutput.ipynb`](examples/exampleOutput.ipynb).
 
