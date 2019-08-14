@@ -6,6 +6,7 @@
   *
   * @return A saída dessa ação, que deve ser um objeto JSON.
   *
+  * To test: {"AVGHEARTBEATSPERMIN":93,"PALPITATIONSPERDAY":22,"CHOLESTEROL":180,"BMI":23,"AGE":52,"SEX":"M","FAMILYHISTORY":"Y","SMOKERLAST5YRS":"Y","EXERCISEMINPERWEEK":0}
   */
 const request = require('request');
 function main(params) {
