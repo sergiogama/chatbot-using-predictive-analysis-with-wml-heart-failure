@@ -24,11 +24,7 @@ When the reader has completed this tutorial, they will understand how to:
 
 Here's an example of what the final web app looks like
 
-![form](doc/source/images/output-form.png)
-
-And it's result
-
-![result](doc/source/images/failure-no.png)
+![form](doc/source/images/tela-app.png)
 
 ## Architecture
 
