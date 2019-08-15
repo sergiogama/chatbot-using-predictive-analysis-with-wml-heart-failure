@@ -1,5 +1,5 @@
 {
-  "name": "Interview",
+  "name": "Patient interview",
   "intents": [],
   "entities": [],
   "language": "en",
@@ -10,18 +10,6 @@
     }
   },
   "skill_id": "99856e31-2b99-4c42-a6b5-3804416fecc5",
-  "webhooks": [
-    {
-      "url": "https://us-east.functions.cloud.ibm.com/api/v1/namespaces/maratona.gama%40outlook.com_dev/actions/wml?blocking=true",
-      "name": "main_webhook",
-      "headers": [
-        {
-          "name": "Authorization",
-          "value": "Basic ZDY2N2I4ZDUtYzBjYi00MGY5LWFjMmQtNWIxZDZhNzFkMWY3OkswV3M5NnF5MzFXRDNRampuZktPR1lZZG9LZ0tvNFJoWVRuS1JQZEdyUmtLc2FxNW5uem5RVnQyTDZPSkhzNTc="
-        }
-      ]
-    }
-  ],
   "description": "",
   "dialog_nodes": [
     {
@@ -227,11 +215,11 @@
     },
     {
       "type": "standard",
-      "title": "Heart bit per minute",
+      "title": "Heart beat per minute",
       "output": {
         "text": {
           "values": [
-            "Heart bit per minute?"
+            "Heart beat per minute?"
           ],
           "selection_policy": "sequential"
         }
