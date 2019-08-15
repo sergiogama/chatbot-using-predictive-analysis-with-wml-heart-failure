@@ -1,10 +1,10 @@
 /**
   *
-  * main() será executado quando você chamar essa ação
+  * main() will be executed when this action be triggered
   *
-  * @param As ações do Cloud Functions aceitam um único parâmetro, que deve ser um objeto JSON.
+  * @param Is the only way to pass parameters to an action, and it mus be a JSON
   *
-  * @return A saída dessa ação, que deve ser um objeto JSON.
+  * @return Output of action and must be a JSON format
   *
   * To test: {"AVGHEARTBEATSPERMIN":93,"PALPITATIONSPERDAY":22,"CHOLESTEROL":180,"BMI":23,"AGE":52,"SEX":"M","FAMILYHISTORY":"Y","SMOKERLAST5YRS":"Y","EXERCISEMINPERWEEK":0}
   */
@@ -12,6 +12,7 @@ const request = require('request');
 function main(params) {
     const getToken = () => {
         const options = {
+            // us-south if the region of your service is Dallas
             url: "https://us-south.ml.cloud.ibm.com/v3/identity/token",
             headers: {
                 "Content-Type": "application/json"
@@ -43,7 +44,7 @@ function main(params) {
 
         getToken().then(token => {
             const options = {
-                // TODO: Substituir com SCORING END-POINT do Deployment do Modeler flow
+                // TODO: Substituir com SCORING END-POINT do Deployment do Modeler flow on Watson Studio
                 url: "https://us-south.ml.cloud.ibm.com/v3/wml_instances/4eda26fa-04aa-435a-be1b-0ce9c0f04057/deployments/fb726ac7-d0c0-44fc-b4cb-59adf763c0c0/online",
                 headers: {
                     "Content-Type": "application/json",
