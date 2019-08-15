@@ -1,10 +1,10 @@
-# Deploy a model to predict heart failure with Watson Machine Learning
+# TUTORIAL: Develop a virtual assistant for health to predict heart failure using neural network on Modeller Flow in Watson Studio, via Watson Machine Learning, connected to Watson Assistant thru an action on Cloud Functions
 
 > **DISCLAIMER**: This application is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review.
 
 This code pattern can be thought of as 4 distinct parts:
 
-1. A predictive model will be built using Modeller Flow on IBM Watson Studio. The model is then deployed to the Watson Machine Learning service, where it can be accessed via a REST API.
+1. A predictive model will be built using Modeller Flow on IBM Watson Studio. The model is deployed to the Watson Machine Learning service, where it can be accessed via a REST API.
 
 2. A action developed on IBM Cloud Functions in Node.js to connect to WML service to be scored against the previous model.
 
@@ -12,7 +12,7 @@ This code pattern can be thought of as 4 distinct parts:
 
 4.  Node.js app to interact to ChatBot to collect data and give the prediction of Heart Failure to the user.
 
-When the reader has completed this Code Pattern, they will understand how to:
+When the reader has completed this tutorial, they will understand how to:
 
 * Build a predictive model within a Modeller Flow on Watson Studio
 * Deploy the model to the IBM Watson Machine Learning service
