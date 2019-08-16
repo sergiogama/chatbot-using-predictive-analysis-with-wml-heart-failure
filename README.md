@@ -167,23 +167,9 @@ Now that we're in our Modeller Flow editor, we can start to create our predictiv
 * Under `Targets` area click on `Add columns`, mark the field `HEARTFAILURE`. Click `Ok`and then `Save`
 * Run the model - Click on ![run](doc/source/images/run-button.png) button on top os screen.
 
-  ![flow complete](doc/source/images/flow-done.png)
+  ![modeller flow viewer](doc/source/images/modeller-flow-model.png)
 
-#### 2.2 Run the model
-
-The gist of the next two steps is to use the [Watson Machine Learning Python client](https://wml-api-pyclient.mybluemix.net/) to persist and deploy the model we just created.
-
-* At the beginning of Step *5. Persist model*, before we deploy our model, we need up update the cell with credentials from our Watson Machine Learning service. (Remember that from [Step 1.3 Provision a Watson Machine Learning service](#13-provision-a-watson-machine-learning-service)?)
-
-* Update the `wml_credentials` variable below. Copy and paste the entire credential dictionary, which can be found on the _Service Credentials_ tab of the Watson Machine Learning service instance created on the IBM Cloud.
-
-   ![credentials-in-nb](doc/source/images/credentials-in-nb.png)
-
-* Keep stepping through the code, pausing on each step to read the code and see the output for the opertion we're performing. At the end of *Step 5* we'll have used the Watson Machine Learning service to persist our predictive model! :tada:
-
-   ![created-saved-model](doc/source/images/created-saved-model.png)
-
-#### 2.3 Deploy the model
+#### 2.2 Deploy the model
 
 * Now let's run *Step 6* of the notebook. Deploy our model so we can have an endpoint to score data against.
 
