@@ -84,7 +84,7 @@ To complete this code pattern we'll need to do a few setup steps before creating
 
 * Create a new project by clicking `+ Crete a project` and choosing `Create an empty project`:
 
-   ![studio project](https://raw.githubusercontent.com/IBM/pattern-utils/master/watson-studio/new-project-data-science.png)
+   ![studio project](doc/source/images/Project_Watson_Studio.png)
 
 * Enter a name for the project name and click `Create`.
 
