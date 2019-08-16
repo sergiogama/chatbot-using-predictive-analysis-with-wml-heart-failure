@@ -40,7 +40,7 @@ Here's an example of what the final web app looks like
 10. A Node.js web app is deployed on IBM Cloud, it connects Watson AssistantLearning service.
 11. A user visits the web app, enters their information, and the predictive model returns a response.
 
-!["architecture diagram"](doc/source/images/architecture.png)
+!["architecture diagram"](doc/source/images/ML Architecture.png)
 
 ## Included components
 
