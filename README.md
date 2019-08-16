@@ -109,7 +109,7 @@ The data used in this example was generated using a normal distribution. Attribu
 
 * **TIP:** Once successfully uploaded, the file should appear in the `Data assets` section of the `Assets` tab.
 
-   ![data asset](doc/source/images/data-asset.png)
+   ![data asset](doc/source/images/asset-list.png)
 
 #### 1.3 Provision a Watson Machine Learning service
 
