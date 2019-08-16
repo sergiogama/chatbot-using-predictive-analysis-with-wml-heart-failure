@@ -46,9 +46,9 @@ Here's an example of what the final web app looks like
 
 * [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
 * [Modeller Flow](https://www.ibm.com/cloud/garage/dte/tutorial/ibmr-watson-studio-speed-mldl-development-modeler-flows/): With SPSS Modeler flows in Watson Studio, you can quickly develop predictive models using business expertise and deploy them into business operations to improve decision making.
-* [Watson Machine Learning](https://www.ibm.com/cloud/machine-learning/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
-* [IBM Cloud Functions](https://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
-* [Watson Assistant](https://github.com/pixiedust/pixiedust): Provides a Python helper library for IPython Notebook.
+* [Watson Machine Learning](https://www.ibm.com/cloud/machine-learning/): Watson Machine Learning helps enable organizations to harness machine learning, deep learning and decision optimization to deliver business value.
+* [IBM Cloud Functions](https://cloud.ibm.com/functions/): Run your application code without servers, scale it automatically, and pay nothing when it's not in use.
+* [Watson Assistant](https://www.ibm.com/cloud/watson-assistant/): Watson Assistant is an offering for building conversational interfaces into any application, device, or channel.
 * [Node.js](https://nodejs.org/): An open-source JavaScript run-time environment for executing server-side JavaScript code.
 
 ## Prerequisites
@@ -56,7 +56,7 @@ Here's an example of what the final web app looks like
 * An [IBM Cloud Account](https://cloud.ibm.com)
 * An account on [IBM Watson Studio](https://dataplatform.cloud.ibm.com/).
 
-> **NOTE**: N/a.
+> **NOTE**: N/A.
 
 ## Steps
 
