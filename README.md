@@ -146,13 +146,16 @@ A completed version can be found in [`model/Heart Failure Prediction.str`](model
 
 ### 2. Create and deploy a predictive model with Watson Studio
 
-Now that we're in our Notebook editor, we can start to create our predictive model by stepping through the notebook.
+Now that we're in our Modeller Flow editor, we can start to create our predictive model by stepping through the notebook.
 
-![notebook viewer](doc/source/images/notebook-viewer.png)
+![modeller flow viewer](doc/source/images/modeller-flow-model.png)
 
-#### 2.1 Start stepping through the notebook
+#### 2.1 Start stepping through the Modeller Flow
 
-* Click the `(►) Run` button to start stepping through the notebook.
+* Open `Import` tab on th eleft side and drag and drop `Data asset` node to the flow area.
+* Double click on `Data asset` node and click on `Change data asset` in the right pane.
+
+![data asset](doc/source/images/flow-data-asset.png)
 
 * When you reach the cell entitled *2. Load and explore data* pause and follow the instructions in that cell. On the very next cell we need to add our data. Follow the numbered steps in the image below.
 
