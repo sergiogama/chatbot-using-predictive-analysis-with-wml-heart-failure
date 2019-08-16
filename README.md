@@ -45,8 +45,8 @@ Here's an example of what the final web app looks like
 ## Included components
 
 * [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
-* [Modeller Flow](https://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
-* [Watson Machine Learning](https://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
+* [Modeller Flow](https://www.ibm.com/cloud/garage/dte/tutorial/ibmr-watson-studio-speed-mldl-development-modeler-flows/): With SPSS Modeler flows in Watson Studio, you can quickly develop predictive models using business expertise and deploy them into business operations to improve decision making.
+* [Watson Machine Learning](https://www.ibm.com/cloud/machine-learning/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
 * [IBM Cloud Functions](https://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
 * [Watson Assistant](https://github.com/pixiedust/pixiedust): Provides a Python helper library for IPython Notebook.
 * [Node.js](https://nodejs.org/): An open-source JavaScript run-time environment for executing server-side JavaScript code.
