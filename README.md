@@ -2,7 +2,7 @@
 
 > **DISCLAIMER**: This application is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review.
 
-This code pattern can be thought of as 4 distinct parts:
+This tutorial can be thought of as 4 distinct parts:
 
 1. A predictive model will be built using Modeller Flow on IBM Watson Studio. The model is deployed to the Watson Machine Learning service, where it can be accessed via a REST API.
 
@@ -76,7 +76,7 @@ Here's an example of what the final web app looks like
 
 ### 1. Setup project and data in Watson Studio
 
-To complete this code pattern we'll need to do a few setup steps before creating our model. In Watson Studio we need to: create a project, add our patient data (which our model will be based on), upload our notebook, and provision a Watson Machine Learning service.
+To complete this tutorial we'll need to do a few setup steps before creating our model. In Watson Studio we need to: create a project, add our patient data (which our model will be based on), upload our notebook, and provision a Watson Machine Learning service.
 
 #### 1.1. Create a project in Watson Studio
 
@@ -242,6 +242,6 @@ The app is fairly self-explantory, simply fill in the data you want to score and
 
 ## License
 
-This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
+This tutorial is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this tutorial are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
 
 [Apache Software License (ASL) FAQ](http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
