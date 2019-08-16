@@ -165,6 +165,7 @@ Now that we're in our Modeller Flow editor, we can start to create our predictiv
 * Open `Modeling`tab in the left side and drag and drop `Neural net`node to the flow data.
 * Double click on `Neural net` node and check `Use custom fields roles`, then under `Inputs` area click on `Add columns`, uncheck `HEARTFAILURE`, and click `Ok`.
 * Under `Targets` area click on `Add columns`, mark the field `HEARTFAILURE`. Click `Ok`and then `Save`
+* Run the model - Click on ![run](doc/source/images/run-button.png) button on top os screen.
 
   ![flow complete](doc/source/images/flow-done.png)
 
