@@ -152,33 +152,23 @@ Now that we're in our Modeller Flow editor, we can start to create our predictiv
 
 #### 2.1 Start stepping through the Modeller Flow
 
-* Open `Import` tab on th eleft side and drag and drop `Data asset` node to the flow area.
+* Open `Import` tab in the left side and drag and drop `Data asset` node to the flow area.
 * Double click on `Data asset` node and click on `Change data asset` in the right pane.
+* Click on Data Asset, and then `patientdataV6.csv`, and click `Ok`
 
 ![data asset](doc/source/images/flow-data-asset.png)
 
-* When you reach the cell entitled *2. Load and explore data* pause and follow the instructions in that cell. On the very next cell we need to add our data. Follow the numbered steps in the image below.
+* Open `Fields operations` tab in the left side and drag and drop `Type` node to the flow area.
+* Connect `Data asset` node to `Type`.
+* Drag and drop `Partition` node to the flow area.
+* Double click on `Partition` node and configure `Training partion(%)` to 75, and `Testing partition(%)` to 25, and click `Save`.
+* Open `Modeling`tab in the left side and drag and drop `Neural net`node to the flow data.
+* Double click on `Neural net` node and check `Use custom fields roles`, then under `Inputs` area click on `Add columns`, uncheck `HEARTFAILURE`, and click `Ok`.
+* Under `Targets` area click on `Add columns`, mark the field `HEARTFAILURE`. Click `Ok`and then `Save`
 
-  ![stop on this cell](doc/source/images/insert-point.png)
+  ![flow complete](doc/source/images/flow-done.png)
 
-  * Click on the `Data` icon. [1]
-  * Select the `Insert to code` option under the file **patientdataV6.csv**. [2]
-  * Choose the `Insert SparkSession Data Frame` option. [3]
-
-  ![add spark dataframe](doc/source/images/insert-spark-dataframe.png)
-
-* The above step will have inserted a chunk of code into your notebook. We need to make two changes:
-
-  * Rename the `df_data_1` variable to `df_data`. [1]
-  * Re-add the line `.option('inferSchema','True')\` to the `spark.read()` call. [2]
-
-  ![modify automatic code](doc/source/images/spark-data-frame.png)
-
-* Keep stepping through the code, pausing on each step to read the code and see the output for the opertion we're performing. At the end of *Step 4* we'll have used the [Random Forest Classifier from PySpark](https://spark.apache.org/docs/2.1.0/ml-classification-regression.html#random-forest-classifier) to create a model **LOCALLY**.
-
-   ![model notebook eval](doc/source/images/model-notebook-eval.png)
-
-#### 2.2 Save the model
+#### 2.2 Run the model
 
 The gist of the next two steps is to use the [Watson Machine Learning Python client](https://wml-api-pyclient.mybluemix.net/) to persist and deploy the model we just created.
 
