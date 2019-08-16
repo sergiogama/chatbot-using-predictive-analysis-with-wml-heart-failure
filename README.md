@@ -129,20 +129,20 @@ The data used in this example was generated using a normal distribution. Attribu
 
 #### 1.4 Create a Modeller Flow in Watson Studio
 
-The notebook we'll be using can be viewed in [`notebooks/predictiveModel.ipynb`](notebooks/predictiveModel.ipynb), and a completed version can be found in [`examples/exampleOutput.ipynb`](examples/exampleOutput.ipynb).
+A completed version can be found in [`model/Heart Failure Prediction.str`](model/Heart Failure Prediction.str).
 
-* From the new project `Overview` panel, click `+ Add to project` on the top right and choose the `Notebook` asset type. Fill in the following information:
+* From the new project `Overview` panel, click `+ Add to project` on the top right and choose the `Modeller Flow` asset type. Fill in the following information:
 
-  * Select the `From URL` tab. [1]
-  * Enter a `Name` for the notebook and optionally a description. [2]
-  * Under `Notebook URL` provide the following url: [https://github.com/IBM/predictive-model-on-watson-ml/blob/master/notebooks/predictiveModel.ipynb](https://github.com/IBM/predictive-model-on-watson-ml/blob/master/notebooks/predictiveModel.ipynb) [3]
-  * For `Runtime` select the `Spark Python 3.6` option. [4]
+  * Select the `New` tab. [1]
+  * Enter a `Name` for the flow and optionally a description. [2]
+  * Under `Select flow type` choose `Modeller flow`, and under `Run time` choose `IBM SPSS Modeller`
+  * Click `Create`
 
-  ![add notebook](https://github.com/IBM/pattern-utils/raw/master/watson-studio/notebook-create-url-spark-py36.png)
+  ![add notebook](doc/source/images/creating-modeller-flow.png)
 
-* **TIP:** Once successfully imported, the notebook should appear in the `Notebooks` section of the `Assets` tab.
+* **TIP:** Once successfully created, the modeller flow should open the flow editor.
 
-  ![notebook asset](doc/source/images/notebook-asset.png)
+  ![notebook asset](doc/source/images/modeller-flow-editor.png)
 
 ### 2. Create and deploy a predictive model with Watson Studio
 
