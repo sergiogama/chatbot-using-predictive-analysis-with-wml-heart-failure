@@ -82,7 +82,7 @@ To complete this code pattern we'll need to do a few setup steps before creating
 
 * Log into IBM's [Watson Studio](https://dataplatform.cloud.ibm.com). Once in, you'll land on the dashboard.
 
-* Create a new project by clicking `+ New project` and choosing `Data Science`:
+* Create a new project by clicking `+ Crete a project` and choosing `Create an empty project`:
 
    ![studio project](https://raw.githubusercontent.com/IBM/pattern-utils/master/watson-studio/new-project-data-science.png)
 
