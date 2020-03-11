@@ -2,6 +2,11 @@
   "intents": [],
   "entities": [
     {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
       "entity": "sexo",
       "values": [
         {
@@ -23,11 +28,6 @@
           ]
         }
       ],
-      "fuzzy_match": true
-    },
-    {
-      "entity": "sys-number",
-      "values": [],
       "fuzzy_match": true
     },
     {
@@ -66,184 +66,6 @@
   "dialog_nodes": [
     {
       "type": "event_handler",
-      "output": {
-        "generic": []
-      },
-      "parent": "slot_8_1583781053961",
-      "next_step": {
-        "behavior": "reprompt"
-      },
-      "conditions": "!slot_in_focus || $epw < 0",
-      "event_name": "filled",
-      "dialog_node": "handler_8_1583784112662",
-      "previous_sibling": "handler_2_1583781053964"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Quantos minutos de exercícios por semana?"
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_8_1583781053961",
-      "event_name": "focus",
-      "dialog_node": "handler_2_1583781053964",
-      "previous_sibling": "handler_1_1583781053964"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Preciso de um valor válido! Quantos minutos de exercício costuma fazer por semana?"
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_8_1583781053961",
-      "conditions": "slot_in_focus",
-      "event_name": "nomatch",
-      "dialog_node": "handler_1_1583784176495",
-      "previous_sibling": "handler_8_1583784112662"
-    },
-    {
-      "type": "event_handler",
-      "output": {},
-      "parent": "slot_8_1583781053961",
-      "context": {
-        "epw": "@sys-number"
-      },
-      "conditions": "@sys-number",
-      "event_name": "input",
-      "dialog_node": "handler_1_1583781053964"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "generic": []
-      },
-      "parent": "slot_5_1583518923139",
-      "next_step": {
-        "behavior": "reprompt"
-      },
-      "conditions": "!slot_in_focus || $mc < 0",
-      "event_name": "filled",
-      "dialog_node": "handler_2_1583783601597",
-      "previous_sibling": "handler_3_1583518923141"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Qual a sua massa corporal atual?"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
-      },
-      "parent": "slot_5_1583518923139",
-      "event_name": "focus",
-      "dialog_node": "handler_3_1583518923141",
-      "previous_sibling": "handler_7_1583518923141"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Me diga, por favor, qual seria a sua massa corporal atual."
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_5_1583518923139",
-      "conditions": "slot_in_focus",
-      "event_name": "nomatch",
-      "dialog_node": "handler_4_1583783641233",
-      "previous_sibling": "handler_2_1583783601597"
-    },
-    {
-      "type": "event_handler",
-      "output": {},
-      "parent": "slot_5_1583518923139",
-      "context": {
-        "mc": "@sys-number"
-      },
-      "conditions": "@sys-number",
-      "event_name": "input",
-      "dialog_node": "handler_7_1583518923141"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Preciso de uma valor de frequência cardíaca válida. "
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_7_1583518007786",
-      "next_step": {
-        "behavior": "reprompt"
-      },
-      "conditions": "$bpm < 20 || $bpm > 300",
-      "event_name": "filled",
-      "dialog_node": "handler_10_1583782023809",
-      "previous_sibling": "handler_7_1583518007794"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Preciso de uma valor de frequência cardíaca válida. Qual seria a sua neste momento?"
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_7_1583518007786",
-      "event_name": "nomatch",
-      "dialog_node": "handler_3_1583782089174",
-      "previous_sibling": "handler_10_1583782023809"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Me diga, quais são os batimentos por minuto. "
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_7_1583518007786",
-      "context": {},
-      "event_name": "focus",
-      "dialog_node": "handler_7_1583518007794",
-      "previous_sibling": "handler_9_1583518007794"
-    },
-    {
-      "type": "event_handler",
-      "output": {},
-      "parent": "slot_7_1583518007786",
-      "context": {
-        "bpm": "@sys-number"
-      },
-      "conditions": "@sys-number",
-      "event_name": "input",
-      "dialog_node": "handler_9_1583518007794"
-    },
-    {
-      "type": "event_handler",
       "output": {},
       "parent": "slot_8_1583517888466",
       "event_name": "focus",
@@ -280,6 +102,20 @@
     {
       "type": "event_handler",
       "output": {
+        "generic": []
+      },
+      "parent": "slot_3_1583518163817",
+      "next_step": {
+        "behavior": "reprompt"
+      },
+      "conditions": "$ppd < 0 or !slot_in_focus",
+      "event_name": "filled",
+      "dialog_node": "handler_2_1583521831464",
+      "previous_sibling": "handler_7_1583518163820"
+    },
+    {
+      "type": "event_handler",
+      "output": {
         "text": {
           "values": [
             "Quatidade de palpitações por dia?"
@@ -294,20 +130,6 @@
     },
     {
       "type": "event_handler",
-      "output": {
-        "generic": []
-      },
-      "parent": "slot_3_1583518163817",
-      "next_step": {
-        "behavior": "reprompt"
-      },
-      "conditions": "$ppd < 0 or !slot_in_focus",
-      "event_name": "filled",
-      "dialog_node": "handler_2_1583521831464",
-      "previous_sibling": "handler_7_1583518163820"
-    },
-    {
-      "type": "event_handler",
       "output": {},
       "parent": "slot_3_1583518163817",
       "context": {
@@ -316,174 +138,6 @@
       "conditions": "@sys-number",
       "event_name": "input",
       "dialog_node": "handler_5_1583518163820"
-    },
-    {
-      "type": "slot",
-      "output": {},
-      "parent": "node_1_1583517990634",
-      "variable": "$idade",
-      "dialog_node": "slot_2_1583519271934",
-      "previous_sibling": "slot_5_1583518923139"
-    },
-    {
-      "type": "response_condition",
-      "parent": "node_1_1583517990634",
-      "conditions": "anything_else",
-      "dialog_node": "response_6_1583782844905",
-      "previous_sibling": "response_9_1583782844591"
-    },
-    {
-      "type": "slot",
-      "output": {},
-      "parent": "node_1_1583517990634",
-      "variable": "$ppd",
-      "conditions": "",
-      "dialog_node": "slot_3_1583518163817",
-      "previous_sibling": "slot_7_1583518007786"
-    },
-    {
-      "type": "slot",
-      "output": {},
-      "parent": "node_1_1583517990634",
-      "variable": "$c",
-      "dialog_node": "slot_2_1583519215221",
-      "previous_sibling": "slot_3_1583518163817"
-    },
-    {
-      "type": "event_handler",
-      "parent": "node_1_1583517990634",
-      "event_name": "focus",
-      "dialog_node": "handler_1_1583519367861",
-      "previous_sibling": "response_6_1583782844905"
-    },
-    {
-      "type": "slot",
-      "output": {},
-      "parent": "node_1_1583517990634",
-      "variable": "$bpm",
-      "dialog_node": "slot_7_1583518007786",
-      "previous_sibling": "handler_1_1583519367861"
-    },
-    {
-      "type": "slot",
-      "output": {},
-      "parent": "node_1_1583517990634",
-      "variable": "$epw",
-      "dialog_node": "slot_8_1583781053961",
-      "previous_sibling": "slot_7_1583780992703"
-    },
-    {
-      "type": "response_condition",
-      "parent": "node_1_1583517990634",
-      "conditions": "$resultado",
-      "dialog_node": "response_9_1583782844591",
-      "previous_sibling": "response_9_1583782843649"
-    },
-    {
-      "type": "slot",
-      "output": {},
-      "parent": "node_1_1583517990634",
-      "variable": "$mc",
-      "dialog_node": "slot_5_1583518923139",
-      "previous_sibling": "slot_2_1583519215221"
-    },
-    {
-      "type": "slot",
-      "output": {},
-      "parent": "node_1_1583517990634",
-      "variable": "$sl5y",
-      "dialog_node": "slot_7_1583780992703",
-      "previous_sibling": "slot_10_1583780838586"
-    },
-    {
-      "type": "slot",
-      "output": {},
-      "parent": "node_1_1583517990634",
-      "variable": "$hf",
-      "dialog_node": "slot_10_1583780838586",
-      "previous_sibling": "slot_3_1583780618401"
-    },
-    {
-      "type": "slot",
-      "output": {},
-      "parent": "node_1_1583517990634",
-      "variable": "$sexo",
-      "dialog_node": "slot_3_1583780618401",
-      "previous_sibling": "slot_2_1583519271934"
-    },
-    {
-      "type": "response_condition",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Obrigado."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
-      },
-      "parent": "node_1_1583517990634",
-      "dialog_node": "response_9_1583782843649"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Fumou nos últimos 5 anos?"
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_7_1583780992703",
-      "event_name": "focus",
-      "dialog_node": "handler_5_1583780992705",
-      "previous_sibling": "handler_3_1583780992705"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "generic": []
-      },
-      "parent": "slot_7_1583780992703",
-      "next_step": {
-        "behavior": "reprompt"
-      },
-      "conditions": "!slot_in_focus",
-      "event_name": "filled",
-      "dialog_node": "handler_7_1583783192773",
-      "previous_sibling": "handler_5_1583780992705"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Resposta inválida! Fumou ou não nos últimos 5 anos?"
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_7_1583780992703",
-      "conditions": "slot_in_focus",
-      "event_name": "nomatch",
-      "dialog_node": "handler_6_1583783230750",
-      "previous_sibling": "handler_7_1583783192773"
-    },
-    {
-      "type": "event_handler",
-      "output": {},
-      "parent": "slot_7_1583780992703",
-      "context": {
-        "sl5y": "@Sim_ou_Nao"
-      },
-      "conditions": "@Sim_ou_Nao",
-      "event_name": "input",
-      "dialog_node": "handler_3_1583780992705"
     },
     {
       "type": "slot",
@@ -522,131 +176,111 @@
       "dialog_node": "node_1_1583517990634"
     },
     {
-      "type": "event_handler",
-      "output": {
-        "generic": []
-      },
-      "parent": "slot_2_1583519215221",
-      "next_step": {
-        "behavior": "reprompt"
-      },
-      "conditions": "!slot_in_focus || $c < 0",
-      "event_name": "filled",
-      "dialog_node": "handler_5_1583783334123",
-      "previous_sibling": "handler_4_1583519215225"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Qual o seu colesterol total?"
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_2_1583519215221",
-      "event_name": "focus",
-      "dialog_node": "handler_4_1583519215225",
-      "previous_sibling": "handler_9_1583519215225"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Por favor, preciso de um valor válido de taxa total de colesterol."
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_2_1583519215221",
-      "conditions": "slot_in_focus",
-      "event_name": "nomatch",
-      "dialog_node": "handler_3_1583783362841",
-      "previous_sibling": "handler_5_1583783334123"
-    },
-    {
-      "type": "event_handler",
+      "type": "slot",
       "output": {},
-      "parent": "slot_2_1583519215221",
-      "context": {
-        "c": "@sys-number"
-      },
-      "conditions": "@sys-number",
-      "event_name": "input",
-      "dialog_node": "handler_9_1583519215225"
+      "parent": "node_1_1583517990634",
+      "variable": "$bpm",
+      "dialog_node": "slot_7_1583518007786",
+      "previous_sibling": "handler_1_1583519367861"
     },
     {
       "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Tem histórico na família?"
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_10_1583780838586",
+      "parent": "node_1_1583517990634",
       "event_name": "focus",
-      "dialog_node": "handler_1_1583780838588",
-      "previous_sibling": "handler_5_1583780838588"
+      "dialog_node": "handler_1_1583519367861",
+      "previous_sibling": "response_6_1583782844905"
     },
     {
-      "type": "event_handler",
-      "output": {
-        "generic": []
-      },
-      "parent": "slot_10_1583780838586",
-      "next_step": {
-        "behavior": "reprompt"
-      },
-      "conditions": "!slot_in_focus",
-      "event_name": "filled",
-      "dialog_node": "handler_9_1583784024240",
-      "previous_sibling": "handler_1_1583780838588"
-    },
-    {
-      "type": "event_handler",
-      "output": {
-        "text": {
-          "values": [
-            "Preciso que me diga se houve caso na família, Sim ou Não?"
-          ],
-          "selection_policy": "sequential"
-        }
-      },
-      "parent": "slot_10_1583780838586",
-      "conditions": "slot_in_focus",
-      "event_name": "nomatch",
-      "dialog_node": "handler_5_1583784041965",
-      "previous_sibling": "handler_9_1583784024240"
-    },
-    {
-      "type": "event_handler",
+      "type": "slot",
       "output": {},
-      "parent": "slot_10_1583780838586",
-      "context": {
-        "hf": "@Sim_ou_Nao"
-      },
-      "conditions": "@Sim_ou_Nao",
-      "event_name": "input",
-      "dialog_node": "handler_5_1583780838588"
+      "parent": "node_1_1583517990634",
+      "variable": "$c",
+      "dialog_node": "slot_2_1583519215221",
+      "previous_sibling": "slot_3_1583518163817"
     },
     {
-      "type": "event_handler",
+      "type": "response_condition",
+      "parent": "node_1_1583517990634",
+      "conditions": "anything_else",
+      "dialog_node": "response_6_1583782844905",
+      "previous_sibling": "response_9_1583782843649"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1583517990634",
+      "variable": "$hf",
+      "dialog_node": "slot_10_1583780838586",
+      "previous_sibling": "slot_3_1583780618401"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1583517990634",
+      "variable": "$epw",
+      "dialog_node": "slot_8_1583781053961",
+      "previous_sibling": "slot_7_1583780992703"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1583517990634",
+      "variable": "$idade",
+      "dialog_node": "slot_2_1583519271934",
+      "previous_sibling": "slot_5_1583518923139"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1583517990634",
+      "variable": "$mc",
+      "dialog_node": "slot_5_1583518923139",
+      "previous_sibling": "slot_2_1583519215221"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1583517990634",
+      "variable": "$sexo",
+      "dialog_node": "slot_3_1583780618401",
+      "previous_sibling": "slot_2_1583519271934"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1583517990634",
+      "variable": "$ppd",
+      "conditions": "",
+      "dialog_node": "slot_3_1583518163817",
+      "previous_sibling": "slot_7_1583518007786"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1583517990634",
+      "variable": "$sl5y",
+      "dialog_node": "slot_7_1583780992703",
+      "previous_sibling": "slot_10_1583780838586"
+    },
+    {
+      "type": "response_condition",
       "output": {
-        "text": {
-          "values": [
-            "Qual o sexo por favor?"
-          ],
-          "selection_policy": "sequential"
-        }
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "De acordo com o meu modelo preditivo, você tem a seguinte chance de ter um infarto: $
+                .response.result.result ($resultado.response.result.confidence)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
       },
-      "parent": "slot_3_1583780618401",
-      "event_name": "focus",
-      "dialog_node": "handler_10_1583780618404",
-      "previous_sibling": "handler_1_1583780618404"
+      "parent": "node_1_1583517990634",
+      "conditions": "$resultado",
+      "dialog_node": "response_9_1583782843649"
     },
     {
       "type": "event_handler",
@@ -671,6 +305,21 @@
       "event_name": "filled",
       "dialog_node": "handler_2_1583783927083",
       "previous_sibling": "handler_10_1583780618404"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Qual o sexo por favor?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_3_1583780618401",
+      "event_name": "focus",
+      "dialog_node": "handler_10_1583780618404",
+      "previous_sibling": "handler_1_1583780618404"
     },
     {
       "type": "event_handler",
@@ -702,16 +351,190 @@
     {
       "type": "event_handler",
       "output": {
+        "text": {
+          "values": [
+            "Fumou nos últimos 5 anos?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_7_1583780992703",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1583780992705",
+      "previous_sibling": "handler_3_1583780992705"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Resposta inválida! Fumou ou não nos últimos 5 anos?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_7_1583780992703",
+      "conditions": "slot_in_focus",
+      "event_name": "nomatch",
+      "dialog_node": "handler_6_1583783230750",
+      "previous_sibling": "handler_7_1583783192773"
+    },
+    {
+      "type": "event_handler",
+      "output": {
         "generic": []
       },
-      "parent": "slot_2_1583519271934",
+      "parent": "slot_7_1583780992703",
       "next_step": {
         "behavior": "reprompt"
       },
-      "conditions": "!slot_in_focus || $idade < 12 || $idade > 150",
+      "conditions": "!slot_in_focus",
       "event_name": "filled",
-      "dialog_node": "handler_2_1583783816664",
-      "previous_sibling": "handler_1_1583519271936"
+      "dialog_node": "handler_7_1583783192773",
+      "previous_sibling": "handler_5_1583780992705"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1583780992703",
+      "context": {
+        "sl5y": "@Sim_ou_Nao"
+      },
+      "conditions": "@Sim_ou_Nao",
+      "event_name": "input",
+      "dialog_node": "handler_3_1583780992705"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual a sua massa corporal atual?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_5_1583518923139",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1583518923141",
+      "previous_sibling": "handler_7_1583518923141"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": []
+      },
+      "parent": "slot_5_1583518923139",
+      "next_step": {
+        "behavior": "reprompt"
+      },
+      "conditions": "!slot_in_focus || $mc < 0",
+      "event_name": "filled",
+      "dialog_node": "handler_2_1583783601597",
+      "previous_sibling": "handler_3_1583518923141"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Me diga, por favor, qual seria a sua massa corporal atual."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_5_1583518923139",
+      "conditions": "slot_in_focus",
+      "event_name": "nomatch",
+      "dialog_node": "handler_4_1583783641233",
+      "previous_sibling": "handler_2_1583783601597"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_5_1583518923139",
+      "context": {
+        "mc": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_7_1583518923141"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Por favor, preciso de um valor válido de taxa total de colesterol."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_2_1583519215221",
+      "conditions": "slot_in_focus",
+      "event_name": "nomatch",
+      "dialog_node": "handler_3_1583783362841",
+      "previous_sibling": "handler_5_1583783334123"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Qual o seu colesterol total?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_2_1583519215221",
+      "event_name": "focus",
+      "dialog_node": "handler_4_1583519215225",
+      "previous_sibling": "handler_9_1583519215225"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": []
+      },
+      "parent": "slot_2_1583519215221",
+      "next_step": {
+        "behavior": "reprompt"
+      },
+      "conditions": "!slot_in_focus || $c < 0",
+      "event_name": "filled",
+      "dialog_node": "handler_5_1583783334123",
+      "previous_sibling": "handler_4_1583519215225"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_2_1583519215221",
+      "context": {
+        "c": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_9_1583519215225"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Qual a sua idade?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_2_1583519271934",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1583519271936",
+      "previous_sibling": "handler_2_1583519271936"
     },
     {
       "type": "event_handler",
@@ -732,17 +555,16 @@
     {
       "type": "event_handler",
       "output": {
-        "text": {
-          "values": [
-            "Qual a sua idade?"
-          ],
-          "selection_policy": "sequential"
-        }
+        "generic": []
       },
       "parent": "slot_2_1583519271934",
-      "event_name": "focus",
-      "dialog_node": "handler_1_1583519271936",
-      "previous_sibling": "handler_2_1583519271936"
+      "next_step": {
+        "behavior": "reprompt"
+      },
+      "conditions": "!slot_in_focus || $idade < 12 || $idade > 150",
+      "event_name": "filled",
+      "dialog_node": "handler_2_1583783816664",
+      "previous_sibling": "handler_1_1583519271936"
     },
     {
       "type": "event_handler",
@@ -754,6 +576,179 @@
       "conditions": "@sys-number",
       "event_name": "input",
       "dialog_node": "handler_2_1583519271936"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Preciso de uma valor de frequência cardíaca válida. "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_7_1583518007786",
+      "next_step": {
+        "behavior": "reprompt"
+      },
+      "conditions": "$bpm < 20 || $bpm > 300",
+      "event_name": "filled",
+      "dialog_node": "handler_10_1583782023809",
+      "previous_sibling": "handler_7_1583518007794"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Me diga, quais são os batimentos por minuto. "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_7_1583518007786",
+      "context": {},
+      "event_name": "focus",
+      "dialog_node": "handler_7_1583518007794",
+      "previous_sibling": "handler_9_1583518007794"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Preciso de uma valor de frequência cardíaca válida. Qual seria a sua neste momento?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_7_1583518007786",
+      "event_name": "nomatch",
+      "dialog_node": "handler_3_1583782089174",
+      "previous_sibling": "handler_10_1583782023809"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1583518007786",
+      "context": {
+        "bpm": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_9_1583518007794"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": []
+      },
+      "parent": "slot_8_1583781053961",
+      "next_step": {
+        "behavior": "reprompt"
+      },
+      "conditions": "!slot_in_focus || $epw < 0",
+      "event_name": "filled",
+      "dialog_node": "handler_8_1583784112662",
+      "previous_sibling": "handler_2_1583781053964"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Preciso de um valor válido! Quantos minutos de exercício costuma fazer por semana?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_8_1583781053961",
+      "conditions": "slot_in_focus",
+      "event_name": "nomatch",
+      "dialog_node": "handler_1_1583784176495",
+      "previous_sibling": "handler_8_1583784112662"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Quantos minutos de exercícios por semana?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_8_1583781053961",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1583781053964",
+      "previous_sibling": "handler_1_1583781053964"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_8_1583781053961",
+      "context": {
+        "epw": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_1_1583781053964"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": []
+      },
+      "parent": "slot_10_1583780838586",
+      "next_step": {
+        "behavior": "reprompt"
+      },
+      "conditions": "!slot_in_focus",
+      "event_name": "filled",
+      "dialog_node": "handler_9_1583784024240",
+      "previous_sibling": "handler_1_1583780838588"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Tem histórico na família?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_10_1583780838586",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1583780838588",
+      "previous_sibling": "handler_5_1583780838588"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Preciso que me diga se houve caso na família, Sim ou Não?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_10_1583780838586",
+      "conditions": "slot_in_focus",
+      "event_name": "nomatch",
+      "dialog_node": "handler_5_1583784041965",
+      "previous_sibling": "handler_9_1583784024240"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1583780838586",
+      "context": {
+        "hf": "@Sim_ou_Nao"
+      },
+      "conditions": "@Sim_ou_Nao",
+      "event_name": "input",
+      "dialog_node": "handler_5_1583780838588"
     },
     {
       "type": "standard",
