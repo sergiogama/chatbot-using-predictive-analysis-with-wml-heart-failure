@@ -6,7 +6,7 @@
   *
   * @return Output of action and must be a JSON format
   *
-  * To test: {"AVGHEARTBEATSPERMIN":93,"PALPITATIONSPERDAY":22,"CHOLESTEROL":180,"BMI":23,"AGE":52,"SEX":"M","FAMILYHISTORY":"Y","SMOKERLAST5YRS":"Y","EXERCISEMINPERWEEK":0}
+  * TO TEST: {"AVGHEARTBEATSPERMIN":93,"PALPITATIONSPERDAY":22,"CHOLESTEROL":180,"BMI":23,"AGE":52,"SEX":"M","FAMILYHISTORY":"Y","SMOKERLAST5YRS":"Y","EXERCISEMINPERWEEK":0}
   */
 const request = require('request');
 function main(params) {
@@ -18,9 +18,9 @@ function main(params) {
                 "Content-Type": "application/json"
             },
             auth: {
-                // TODO: Substituir com USERNAME e PASSWORD do serviço de Watson Machine Learning
+                // TODO: Replace "pass" with äpikey" from credentials of Watson Machine Learning service
                 user: "apikey",
-                pass: "<API Key>"
+                pass: "<API KEY>"
             },
             json: true
         };
@@ -40,12 +40,12 @@ function main(params) {
         
         // TODO: Create a acces token:
         // curl -X POST 'https://iam.cloud.ibm.com/identity/token' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=<WML API Key>'
-        const _token = {access_token:"<Access Token>"};
+        const _token = {"access_token":"<ACCESS TOKEN>"};
 
         getToken().then(token => {
             const options = {
-                // TODO: Substituir com SCORING END-POINT do Deployment do Modeler flow on Watson Studio
-                url: "https://us-south.ml.cloud.ibm.com/v3/wml_instances/4eda26fa-04aa-435a-be1b-0ce9c0f04057/deployments/fb726ac7-d0c0-44fc-b4cb-59adf763c0c0/online",
+                // TODO: Replace with SCORING END-POINT from IMPLEMENTATION tab on Watson Machine Learning deployment, on Watson Studio
+                url: "<SCORING END-POINT URL>",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ` + _token.access_token
@@ -58,14 +58,14 @@ function main(params) {
                 else if (data.errors) {
                     resolve({
                         "err": true,
-                        "Resultado": data.errors[0].message
+                        "result": data.errors[0].message
                     });
                 }
                 else {
                     resolve({
                         "err": false,
-                        "Result": data.values[0][0],
-                        "Confidence": data.values[0][1]
+                        "result": data.values[0][0],
+                        "confidence": data.values[0][1]
                     });
                 }
             });
