@@ -269,8 +269,7 @@
           {
             "values": [
               {
-                "text": "De acordo com o meu modelo preditivo, você tem a seguinte chance de ter um infarto: $
-                .response.result.result ($resultado.response.result.confidence)"
+                "text": "De acordo com o meu modelo preditivo, você tem a seguinte chance de ter um infarto: $resultado.response.result.result ($resultado.response.result.confidence)"
               }
             ],
             "response_type": "text",
