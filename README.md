@@ -1,10 +1,10 @@
-# TUTORIAL: Develop a virtual assistant for health to predict heart failure using neural network on Modeller Flow in Watson Studio, via Watson Machine Learning, connected to Watson Assistant thru an action on Cloud Functions
+# TUTORIAL: Develop a virtual assistant for health to predict heart failure using neural network on Modeller Flow in Cloud Pack for Data (Watson Studio), via Watson Machine Learning, connected to Watson Assistant thru an action on Cloud Functions
 
 > **DISCLAIMER**: This application is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review.
 
 This tutorial can be thought of as 4 distinct parts:
 
-1. A predictive model will be built using Modeller Flow on IBM Watson Studio. The model is deployed to the Watson Machine Learning service, where it can be accessed via a REST API.
+1. A predictive model will be built using SPSS Modeller Flow on Cloud Pack for Data (IBM Watson Studio). The model is deployed to the Watson Machine Learning service V2, where it can be accessed via a REST API.
 
 2. A action developed on IBM Cloud Functions in Node.js to connect to WML service to be scored against the previous model.
 
@@ -14,7 +14,7 @@ This tutorial can be thought of as 4 distinct parts:
 
 When the reader has completed this tutorial, they will understand how to:
 
-* Build a predictive model within a Modeller Flow on Watson Studio
+* Build a predictive model within a Modeller Flow on Cloud Pack for Data (Watson Studio)
 * Deploy the model to the IBM Watson Machine Learning service
 * Create a action on IBM Cloud to call WML service
 * Deploy a Chatbot on Watson Studio and integrate it to Cloud Functions
@@ -28,7 +28,7 @@ Here's an example of what the final web app looks like
 
 ## Architecture
 
-1. The developer creates an IBM Watson Studio Workspace.
+1. Creates an IBM Watson Studio Workspace (Cloud Pack for Data).
 2. IBM Watson Studio uses an Apache Spark service.
 3. IBM Watson Studio uses Cloud Object storage to manage your data.
 4. IBM Watson Studio uses a Modeller Flow to import data, train, and evaluate their model.
@@ -44,8 +44,8 @@ Here's an example of what the final web app looks like
 
 ## Included components
 
-* [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
-* [Modeller Flow](https://www.ibm.com/cloud/garage/dte/tutorial/ibmr-watson-studio-speed-mldl-development-modeler-flows/): With SPSS Modeler flows in Watson Studio, you can quickly develop predictive models using business expertise and deploy them into business operations to improve decision making.
+* [IBM Cloud Pack for Data (IBM Watson Studio)](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
+* [SPSS Modeller Flow](https://www.ibm.com/cloud/garage/dte/tutorial/ibmr-watson-studio-speed-mldl-development-modeler-flows/): With SPSS Modeler flows in Watson Studio, you can quickly develop predictive models using business expertise and deploy them into business operations to improve decision making.
 * [Watson Machine Learning](https://www.ibm.com/cloud/machine-learning/): Watson Machine Learning helps enable organizations to harness machine learning, deep learning and decision optimization to deliver business value.
 * [IBM Cloud Functions](https://cloud.ibm.com/functions/): Run your application code without servers, scale it automatically, and pay nothing when it's not in use.
 * [Watson Assistant](https://www.ibm.com/cloud/watson-assistant/): Watson Assistant is an offering for building conversational interfaces into any application, device, or channel.
@@ -54,7 +54,6 @@ Here's an example of what the final web app looks like
 ## Prerequisites
 
 * An [IBM Cloud Account](https://cloud.ibm.com)
-* An account on [IBM Watson Studio](https://dataplatform.cloud.ibm.com/).
 
 > **NOTE**: N/A.
 
@@ -65,22 +64,22 @@ Here's an example of what the final web app looks like
    * [Add patient data as an asset](#12-add-patient-data-as-an-asset)
    * [Provision a Watson Machine Learning service](#13-provision-a-watson-machine-learning-service)
    * [Create a Modeller Flow in Watson Studio](#14-create-a-modeller-flow-in-watson-studio)
-1. [Create and deploy a predictive model with Watson Studio](#2-create-and-deploy-a-predictive-model-with-watson-studio)
+2. [Create and deploy a predictive model with Watson Studio](#2-create-and-deploy-a-predictive-model-with-watson-studio)
    * [Start stepping through the notebook](#21-start-stepping-through-the-notebook)
    * [Save the model](#22-save-the-model)
    * [Deploy the model](#23-deploy-the-model)
-1. [The client side](#3-the-client-side)
+3. [The client side](#3-the-client-side)
    * [Deploy the web app](#31-deploy-the-web-app)
    * [Bind the app with the existing Maching Learning service](#32-bind-the-app-with-the-existing-maching-learning-service)
    * [Interacting with the web app](#33-interacting-with-the-web-app)
 
-### 1. Setup project and data in Watson Studio
+### 1. Setup project and data on Cloud Pack for Data (Watson Studio)
 
 To complete this tutorial we'll need to do a few setup steps before creating our model. In Watson Studio we need to: create a project, add our patient data (which our model will be based on), upload our notebook, and provision a Watson Machine Learning service.
 
-#### 1.1. Create a project in Watson Studio
+#### 1.1. Create a project on Cloud Pack for Data (Watson Studio)
 
-* Log into IBM's [Watson Studio](https://dataplatform.cloud.ibm.com). Once in, you'll land on the dashboard.
+* Log into IBM's [Cloud Pack for Data (Watson Studio)](https://dataplatform.cloud.ibm.com). Once in, you'll land on the dashboard.
 
 * Create a new project by clicking `+ Crete a project` and choosing `Create an empty project`:
 
