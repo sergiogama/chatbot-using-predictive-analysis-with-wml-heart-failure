@@ -6,7 +6,7 @@
   *
   * @return Output of action and must be a JSON format
   *
-  * TO TEST: {"AVGHEARTBEATSPERMIN":93,"PALPITATIONSPERDAY":22,"CHOLESTEROL":180,"BMI":23,"AGE":52,"SEX":"M","FAMILYHISTORY":"Y","SMOKERLAST5YRS":"Y","EXERCISEMINPERWEEK":0}
+  * TO TEST: {"AVGHEARTBEATSPERMIN":93,"PALPITATIONSPERDAY":22,"CHOLESTEROL":180,"BMI":23,"AGE":52,"SEX":"M","FAMILYHISTORY":"Y","SMOKERLASTFIVEYRS":"Y","EXERCISEMINPERWEEK":0}
   */
 const request = require('request');
 function main(params) {
@@ -18,7 +18,7 @@ function main(params) {
                 "Content-Type": "application/json"
             },
             auth: {
-                // TODO: Replace "pass" with äpikey" from credentials of Watson Machine Learning service
+                // TODO: Replace "pass" with äpikey" from https://cloud.ibm.com/iam/apikeys. If you havent it already, create one.
                 user: "apikey",
                 pass: "<API KEY>"
             },
@@ -35,17 +35,18 @@ function main(params) {
     };
 
     return new Promise((resolve, reject) => {
-        const body = {fields: ["AVGHEARTBEATSPERMIN", "PALPITATIONSPERDAY", "CHOLESTEROL", "BMI", "AGE", "SEX", "FAMILYHISTORY", "SMOKERLAST5YRS", "EXERCISEMINPERWEEK"], 
-      values: [[params.AVGHEARTBEATSPERMIN,params.PALPITATIONSPERDAY,params.CHOLESTEROL,params.BMI,params.AGE,params.SEX,params.FAMILYHISTORY,params.SMOKERLAST5YRS,params.EXERCISEMINPERWEEK]]};
-        
+        const body = {"input_data": [{fields: ["AVGHEARTBEATSPERMIN", "PALPITATIONSPERDAY", "CHOLESTEROL", "BMI", "AGE", "SEX", "FAMILYHISTORY", "SMOKERLAST5YRS", "EXERCISEMINPERWEEK"], 
+                                      values: [[params.AVGHEARTBEATSPERMIN,params.PALPITATIONSPERDAY,params.CHOLESTEROL,params.BMI,params.AGE,params.SEX,params.FAMILYHISTORY,params.SMOKERLASTFIVEYRS,params.EXERCISEMINPERWEEK]]}]};
+
         // TODO: Create a acces token:
-        // curl -X POST 'https://iam.cloud.ibm.com/identity/token' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=<WML API Key>'
+        // NOTE: you must set $API_KEY below using information retrieved from your IBM Cloud account.
+        // curl --insecure -X POST --header "Content-Type: application/x-www-form-urlencoded" --header "Accept: application/json" --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" --data-urlencode "apikey=$API_KEY" "https://iam.ng.bluemix.net/identity/token"
         const _token = {"access_token":"<ACCESS TOKEN>"};
 
         getToken().then(token => {
             const options = {
-                // TODO: Replace with SCORING END-POINT from IMPLEMENTATION tab on Watson Machine Learning deployment, on Watson Studio
-                url: "<SCORING END-POINT URL>",
+                // TODO: Replace with DIRECT LINK END-POINT from API reference tab on Watson Machine Learning deployment, on Cloud Pack for Data (Watson Studio)
+                url: "<API reference END-POINT URL>",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ` + _token.access_token
@@ -64,8 +65,8 @@ function main(params) {
                 else {
                     resolve({
                         "err": false,
-                        "result": data.values[0][0],
-                        "confidence": data.values[0][1]
+                        "result": data.predictions[0].values[0][0], 
+                        "confidence": data.predictions[0].values[0][1] 
                     });
                 }
             });
