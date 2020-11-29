@@ -1,0 +1,365 @@
+{
+  "intents": [],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "webhooks": [
+    {
+      "url": "",
+      "name": "main_webhook",
+      "headers": []
+    }
+  ],
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand. You can try rephrasing.",
+            "Can you reword your statement? I'm not understanding.",
+            "I didn't get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Body mass indice",
+      "output": {
+        "text": {
+          "values": [
+            "Body mass index?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_4_1565804180918",
+      "context": {
+        "CHOLESTEROL": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_2_1565804331393"
+      },
+      "conditions": "true",
+      "dialog_node": "node_10_1565804237067"
+    },
+    {
+      "type": "standard",
+      "title": "Sex",
+      "output": {
+        "text": {
+          "values": [
+            "Sex?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_2_1565804331393",
+      "context": {
+        "AGE": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_3_1565804395811"
+      },
+      "conditions": "true",
+      "dialog_node": "node_10_1565804366525"
+    },
+    {
+      "type": "standard",
+      "title": "Smoker in last 5 years",
+      "output": {
+        "text": {
+          "values": [
+            "Smoker in last 5 years?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_3_1565804395811",
+      "context": {
+        "FAMILYHISTORY": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_9_1565804508149"
+      },
+      "conditions": "true",
+      "dialog_node": "node_10_1565804436914"
+    },
+    {
+      "type": "standard",
+      "title": "Age",
+      "output": {
+        "text": {
+          "values": [
+            "Age?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_10_1565804237067",
+      "context": {
+        "BMI": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_10_1565804366525"
+      },
+      "conditions": "true",
+      "dialog_node": "node_2_1565804331393"
+    },
+    {
+      "type": "standard",
+      "title": "Family history",
+      "output": {
+        "text": {
+          "values": [
+            "Family history"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_10_1565804366525",
+      "context": {
+        "SEX": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_10_1565804436914"
+      },
+      "conditions": "true",
+      "dialog_node": "node_3_1565804395811"
+    },
+    {
+      "type": "standard",
+      "title": "Palpitation per day",
+      "output": {
+        "text": {
+          "values": [
+            "Palpitation per day?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_8_1565804007229",
+      "context": {
+        "AVGHEARTBEATSPERMIN": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_4_1565804180918"
+      },
+      "conditions": "true",
+      "dialog_node": "node_4_1565804117011"
+    },
+    {
+      "type": "standard",
+      "title": "Cholesterol",
+      "output": {
+        "text": {
+          "values": [
+            "Cholesterol?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_4_1565804117011",
+      "context": {
+        "PALPITATIONSPERDAY": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_10_1565804237067"
+      },
+      "conditions": "true",
+      "dialog_node": "node_4_1565804180918"
+    },
+    {
+      "type": "standard",
+      "title": "Heart beat per minute",
+      "output": {
+        "text": {
+          "values": [
+            "Heart beat per minute?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "Welcome",
+      "context": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_4_1565804117011"
+      },
+      "conditions": "true",
+      "dialog_node": "node_8_1565804007229"
+    },
+    {
+      "type": "standard",
+      "title": "Prediction",
+      "parent": "node_9_1565807327517",
+      "actions": [
+        {
+          "name": "main_webhook",
+          "type": "webhook",
+          "parameters": {
+            "AGE": "<? $AGE.toInt() ?>",
+            "BMI": "<? $BMI.toInt() ?>",
+            "SEX": "M",
+            "CHOLESTEROL": "<? $CHOLESTEROL.toInt() ?>",
+            "FAMILYHISTORY": "N",
+            "SMOKERLASTFIVEYRS": "N",
+            "EXERCISEMINPERWEEK": "<? $EXERCISEMINPERWEEK.toInt() ?>",
+            "PALPITATIONSPERDAY": "<? $PALPITATIONSPERDAY.toInt() ?>",
+            "AVGHEARTBEATSPERMIN": "<? $AVGHEARTBEATSPERMIN.toInt() ?>"
+          },
+          "result_variable": "response"
+        }
+      ],
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "true",
+      "dialog_node": "node_8_1565805799616"
+    },
+    {
+      "type": "standard",
+      "title": "Exercise minutes per week",
+      "output": {
+        "text": {
+          "values": [
+            "Exercise minutes per week?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_10_1565804436914",
+      "context": {
+        "SMOKERLASTFIVEYRS": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_9_1565807327517"
+      },
+      "conditions": "true",
+      "dialog_node": "node_9_1565804508149"
+    },
+    {
+      "type": "standard",
+      "title": "Thanks",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Predicting..."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "time": 2000,
+            "typing": true,
+            "response_type": "pause"
+          }
+        ]
+      },
+      "parent": "node_9_1565804508149",
+      "context": {
+        "EXERCISEMINPERWEEK": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_8_1565805799616"
+      },
+      "conditions": "true",
+      "dialog_node": "node_9_1565807327517"
+    },
+    {
+      "type": "response_condition",
+      "title": "response_1_1565806242031",
+      "output": {
+        "text": {
+          "values": [
+            "I cant evaluate "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_8_1565805799616",
+      "conditions": "anything_else",
+      "dialog_node": "response_1_1565806242031",
+      "previous_sibling": "response_3_1565806240929"
+    },
+    {
+      "type": "response_condition",
+      "title": "response_3_1565806240929",
+      "output": {
+        "text": {
+          "values": [
+            "<? ($response.result == \"N\") ? \"Patient is not in risk to have heart failuere\" : \"Patient in risk to have a heart failure\" ?> ( $response.confidence )"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_8_1565805799616",
+      "conditions": "$response",
+      "dialog_node": "response_3_1565806240929"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Hi! I'm your virtual doctor! I can help you predict heart failure. "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "context": {
+        "AVGHEARTBEATSPERMIN": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_8_1565804007229"
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Patient interview",
+  "language": "en",
+  "description": ""
+}
