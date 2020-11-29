@@ -65,6 +65,7 @@ function main(params) {
                 else {
                     resolve({
                         "err": false,
+                        "params":params,
                         "result": data.predictions[0].values[0][0], 
                         "confidence": data.predictions[0].values[0][1] 
                     });
