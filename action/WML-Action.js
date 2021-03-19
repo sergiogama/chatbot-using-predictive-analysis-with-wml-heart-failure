@@ -1,13 +1,13 @@
 /**
-  *
-  * main() will be executed when this action be triggered
-  *
-  * @param Is the only way to pass parameters to an action, and it mus be a JSON
-  *
-  * @return Output of action and must be a JSON format
-  *
-  * TO TEST: {"AVGHEARTBEATSPERMIN":93,"PALPITATIONSPERDAY":22,"CHOLESTEROL":180,"BMI":23,"AGE":52,"SEX":"M","FAMILYHISTORY":"Y","SMOKERLASTFIVEYRS":"Y","EXERCISEMINPERWEEK":0}
-  */
+*
+* main() will be executed when this action be triggered
+*
+* @param Is the only way to pass parameters to an action, and it mus be a JSON
+*
+* @return Output of action and must be a JSON format
+*
+* TO TEST: {"AVGHEARTBEATSPERMIN":93,"PALPITATIONSPERDAY":22,"CHOLESTEROL":180,"BMI":23,"AGE":52,"SEX":"M","FAMILYHISTORY":"Y","SMOKERLASTFIVEYRS":"Y","EXERCISEMINPERWEEK":0}
+*/
 const request = require('request');
 function main(params) {
     const getToken = () => {
