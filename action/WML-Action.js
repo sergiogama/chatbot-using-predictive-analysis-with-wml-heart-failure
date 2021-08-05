@@ -13,7 +13,7 @@ function main(params) {
     const getToken = () => {
         const options = {
             // us-south if the region of your service is Dallas
-            url: "https://us-south.ml.cloud.ibm.com/v3/identity/token",
+            url: "https://us-south.ml.cloud.ibm.com/ml/v4/deployments",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -41,12 +41,12 @@ function main(params) {
         // TODO: Create a acces token:
         // NOTE: you must set $API_KEY below using information retrieved from your IBM Cloud account.
         // curl --insecure -X POST --header "Content-Type: application/x-www-form-urlencoded" --header "Accept: application/json" --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" --data-urlencode "apikey=$API_KEY" "https://iam.ng.bluemix.net/identity/token"
-        const _token = {"access_token":"<ACCESS TOKEN>"};
+        const _token = {"access_token":<"ACCESS TOKEN">};
 
         getToken().then(token => {
             const options = {
                 // TODO: Replace with DIRECT LINK END-POINT from API reference tab on Watson Machine Learning deployment, on Cloud Pack for Data (Watson Studio)
-                url: "<API reference END-POINT URL>",
+                url: "<Endpoint URL>",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ` + _token.access_token
@@ -65,9 +65,9 @@ function main(params) {
                 else {
                     resolve({
                         "err": false,
-                        "params":params,
-                        "result": data.predictions[0].values[0][0], 
-                        "confidence": data.predictions[0].values[0][1] 
+                        "patient-data":params,
+                        "healthfailure": data.predictions[0].values[0][0], 
+                        "confidence": data.predictions[0].values[0][1]
                     });
                 }
             });
